@@ -1,0 +1,19 @@
+[Unit]
+Description=User API Service
+After=network.target redis-server.service
+Requires=redis-server.service
+
+[Service]
+Type=simple
+User=vagrant
+WorkingDirectory=/home/vagrant/userapi
+Environment="NODE_ENV=production"
+Environment="PORT=3000"
+Environment="REDIS_HOST=127.0.0.1"
+Environment="REDIS_PORT=6379"
+ExecStart=/usr/bin/node src/index.js
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
