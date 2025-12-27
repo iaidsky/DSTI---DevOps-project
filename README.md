@@ -452,8 +452,5 @@ This is an academic project. Contributions are not accepted.
 
 ## 📞 Support
 
-For questions or issues, please contact the author or create an issue in the GitHub repository.
+For questions or issues, please contact me.
 
----
-
-**Made with ❤️ for the DSTI DevOps Course**
