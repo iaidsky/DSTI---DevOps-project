@@ -61,6 +61,19 @@ A complete DevOps project implementing a RESTful User API with CRUD operations, 
 - **IaC**: Vagrant, Ansible
 - **Version Control**: Git, GitHub
 
+### NPM Packages
+
+#### Dependencies
+- **express** (^4.18.2) - Fast, unopinionated web framework for Node.js
+- **redis** (^4.6.5) - Redis client for Node.js with promise support
+- **body-parser** (^1.20.2) - Node.js body parsing middleware
+
+#### Dev Dependencies
+- **mocha** (^10.2.0) - Feature-rich JavaScript test framework
+- **chai** (^4.3.7) - BDD/TDD assertion library
+- **supertest** (^6.3.3) - HTTP assertions for testing APIs
+- **nodemon** (^3.0.1) - Auto-restart server during development
+
 ## 📦 Prerequisites
 
 Before you begin, ensure you have the following installed:
