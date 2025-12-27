@@ -91,16 +91,16 @@ Invoke-RestMethod http://localhost:3000/
 
 **Using curl (CMD or WSL, NOT PowerShell):**
 ```bash
-curl -X POST http://localhost:3000/user -H "Content-Type: application/json" -d '{\"username\":\"testuser\",\"firstname\":\"Saibou\",\"lastname\":\"KEITA\",\"email\":\"Saibou.keita@cloudy.com\"}'
+curl -X POST http://localhost:3000/user -H "Content-Type: application/json" -d '{\"username\":\"testuser\",\"firstname\":\"Saibou\",\"lastname\":\"KEITA\",\"email\":\"Saibou.keita@edu.dsti.institute\"}'
 ```
 
 **Using PowerShell:**
 ```powershell
 $body = @{
     username = "testuser"
-    firstname = "John"
-    lastname = "Doe"
-    email = "john@example.com"
+    firstname = "David"
+    lastname = "KEITA"
+    email = "David.K@example.com"
 } | ConvertTo-Json
 
 Invoke-RestMethod -Uri http://localhost:3000/user -Method Post -Body $body -ContentType "application/json"
@@ -132,9 +132,9 @@ Invoke-RestMethod http://localhost:3000/user/testuser
 ```json
 {
   "username": "testuser",
-  "firstname": "John",
-  "lastname": "Doe",
-  "email": "john@example.com"
+  "firstname": "David",
+  "lastname": "KEITA",
+  "email": "David.k@example.com"
 }
 ```
 
@@ -172,8 +172,8 @@ Invoke-RestMethod http://localhost:3000/user/testuser
 ```json
 {
   "username": "testuser",
-  "firstname": "John",
-  "lastname": "Doe",
+  "firstname": "David",
+  "lastname": "KEITA",
   "email": "newemail@example.com"
 }
 ```
