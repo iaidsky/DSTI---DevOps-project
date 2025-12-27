@@ -77,8 +77,8 @@ Before you begin, ensure you have the following installed:
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/iaidsky/DevOps-Project.git
-cd DevOps-Project
+git clone https://github.com/iaidsky/DSTI---DevOps-project.git
+cd DSTI---DevOps-project
 ```
 
 ### 2. Local Development Setup
@@ -206,10 +206,10 @@ POST /user
 Content-Type: application/json
 
 {
-  "username": "johndoe",
-  "firstname": "John",
-  "lastname": "Doe",
-  "email": "john.doe@example.com"
+  "username": "Saibkei",
+  "firstname": "Saibou",
+  "lastname": "Keita",
+  "email": "Saibou.keita@edu.dsti.intitute"
 }
 ```
 
