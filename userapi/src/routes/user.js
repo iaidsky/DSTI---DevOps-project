@@ -2,6 +2,25 @@ const express = require('express');
 const router = express.Router();
 const db = require('../dbClient');
 
+// Get all users
+router.get('/', async (req, res) => {
+  try {
+    const keys = await db.keys('user:*');
+    const users = [];
+    
+    for (const key of keys) {
+      const username = key.replace('user:', '');
+      const userData = await db.hGetAll(key);
+      users.push({ username, ...userData });
+    }
+    
+    res.json({ users, count: users.length });
+  } catch (err) {
+    console.error('Error getting users:', err);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
 // Create user
 router.post('/', async (req, res) => {
   try {
@@ -18,11 +37,9 @@ router.post('/', async (req, res) => {
     }
 
     // Store user data
-    await db.hSet(`user:${username}`, [
-      'firstname', firstname,
-      'lastname', lastname,
-      'email', email
-    ]);
+    await db.hSet(`user:${username}`, 'firstname', firstname);
+    await db.hSet(`user:${username}`, 'lastname', lastname);
+    await db.hSet(`user:${username}`, 'email', email);
     res.status(201).json({ message: 'User created successfully', username });
   } catch (err) {
     console.error('Error creating user:', err);
@@ -68,9 +85,9 @@ router.put('/:username', async (req, res) => {
       return res.status(400).json({ error: 'No fields to update' });
     }
 
-    // Convert updates object to array format
-    const updateArray = Object.entries(updates).flat();
-    await db.hSet(`user:${username}`, updateArray);
+    for (const [field, value] of Object.entries(updates)) {
+      await db.hSet(`user:${username}`, field, value);
+    }
     res.json({ message: 'User updated successfully', username });
   } catch (err) {
     console.error('Error updating user:', err);
